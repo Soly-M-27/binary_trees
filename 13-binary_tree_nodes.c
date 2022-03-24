@@ -17,12 +17,12 @@ size_t binary_tree_nodes(const binary_tree_t *tree)
 		return (0);
 
 	if (tree->left)
-		x += 1;
+		x += binary_tree_nodes(tree->left);
 
 	if (tree->right)
-		x += 1;
+		x += binary_tree_nodes(tree->right);
 
-	if (tree->left && tree->right)
+	if (tree->left || tree->right)
 		x += 1;
 
 	return (x);
